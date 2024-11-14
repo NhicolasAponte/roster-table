@@ -4,8 +4,9 @@ This project is intended to be a playground for working and experimenting with R
 [x] configure font for nextjs 
 [x] generate shadcn components with shadcn CLI 
 [x] build data model 
-[x] generate data 
-[] make table route 
+[x] make table route 
+[x] dynamic routing component using routes.ts and NavRoutes array 
+[] generate data 
 [] create table and columns components 
 [] install drizzle 
 [] setup postgres docker image 
