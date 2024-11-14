@@ -6,7 +6,8 @@ This project is intended to be a playground for working and experimenting with R
 [x] build data model 
 [x] make table route 
 [x] dynamic routing component using routes.ts and NavRoutes array 
-[] generate data 
+[x] generate data 
+[x] created sample table and column components from shadcn 
 [] create table and columns components 
 [] install drizzle 
 [] setup postgres docker image 
