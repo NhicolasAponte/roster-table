@@ -2,10 +2,10 @@ export type Employee = {
     id: number;
     first_name: string;
     last_name: string;
-    employment_type: string; // regular, part-time, temporary
     department: string; // department name
     position: string; // supervisor, team lead, etc. 
     station: string;
+    employment_type: string; // regular, part-time, temporary
     hire_date: string;
 }
 
