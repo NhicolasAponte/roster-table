@@ -2,6 +2,7 @@ export type Employee = {
     id: number;
     first_name: string;
     last_name: string;
+    full_name: string;
     department: string; // department name
     position: string; // supervisor, team lead, etc. 
     station: string;

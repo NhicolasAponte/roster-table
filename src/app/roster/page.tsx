@@ -1,5 +1,8 @@
+import { employees } from "@/lib/placeholder-data";
 import { columns, Payment } from "./basic-columns";
 import { BasicTable } from "./basic-table";
+import { employeeColumns } from "./columns";
+import { DataTable } from "./data-table";
 
 async function getData(): Promise<Payment[]> {
   // Fetch data from your API here.
@@ -34,9 +37,20 @@ async function getData(): Promise<Payment[]> {
 export default async function DemoPage() {
   const data = await getData();
 
+  const employeesWithFullName = employees.map((employee) => {
+    return {
+        ...employee,
+        full_name: `${employee.first_name} ${employee.last_name}`,
+    }
+  })
+
   return (
     <div className="container mx-auto py-10">
-      <BasicTable columns={columns} data={data} />
+      <BasicTable columns={columns} data={data} /> 
+      <div className="border rounded-md m-2 p-4">
+        employee table 
+      </div>
+      <DataTable columns={employeeColumns} data={employeesWithFullName} />
     </div>
   );
 }
