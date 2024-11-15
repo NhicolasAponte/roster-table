@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Employee } from "@/data/schema-definitions";
 import { ColumnDef } from "@tanstack/react-table";
+import { ArrowUpDown } from "lucide-react";
 
 export const employeeColumns: ColumnDef<Employee>[] = [
   {
@@ -14,6 +15,7 @@ export const employeeColumns: ColumnDef<Employee>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Full Name
+          <ArrowUpDown size={16} />
         </Button>
       );
     },
@@ -30,6 +32,7 @@ export const employeeColumns: ColumnDef<Employee>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Department
+          <ArrowUpDown size={16} />
         </Button>
       );
     },
@@ -46,6 +49,7 @@ export const employeeColumns: ColumnDef<Employee>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Position
+          <ArrowUpDown size={16} />
         </Button>
       );
     },
@@ -62,6 +66,7 @@ export const employeeColumns: ColumnDef<Employee>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Station
+          <ArrowUpDown size={16} />
         </Button>
       );
     },
@@ -78,6 +83,7 @@ export const employeeColumns: ColumnDef<Employee>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Employment Type
+          <ArrowUpDown size={16} />
         </Button>
       );
     },
@@ -94,6 +100,7 @@ export const employeeColumns: ColumnDef<Employee>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Hire Date
+          <ArrowUpDown size={16} />
         </Button>
       );
     },
