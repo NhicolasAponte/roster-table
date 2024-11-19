@@ -1,19 +1,19 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Employee } from "@/data/schema-definitions";
 // import { Employee } from "@/data/schema-definitions";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
+import { EditableCell } from "./editable-cell";
 
-interface ColumnsProps<TData> {
-  setTableData: React.Dispatch<React.SetStateAction<TData[]>>;
+interface ColumnsProps {
+  setTableData: React.Dispatch<React.SetStateAction<Employee[]>>;
 }
 
-export const employeeColumns = <TData extends Employee>({
+export const employeeColumns = ({
   setTableData,
-}: ColumnsProps<TData>): ColumnDef<TData>[] => [
+}: ColumnsProps): ColumnDef<Employee>[] => [
   {
     accessorKey: "full_name",
     header: ({ column }) => {
@@ -28,20 +28,7 @@ export const employeeColumns = <TData extends Employee>({
       );
     },
     cell: ({ cell }) => {
-      return (
-        <Input
-          value={cell.getValue() as string}
-          onChange={(event) => {
-            const newValue = event.target.value;
-            const rowIndex = cell.row.index;
-            setTableData((prevData) => {
-              return prevData.map((row, index) =>
-                index === rowIndex ? { ...row, full_name: newValue } : row
-              );
-            });
-          }}
-        />
-      );
+      return <EditableCell cell={cell} setTableData={setTableData} />;
     },
   },
   {

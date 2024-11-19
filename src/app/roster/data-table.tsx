@@ -24,15 +24,15 @@ import { employeeColumns } from "./columns";
 import { Employee } from "@/data/schema-definitions";
 
 // TData: generic type for the data that will be displayed in the table
-// TValue: generic type for the value of the data that will be displayed in the tablen
-interface DataTableProps<TData> {
+// TValue: generic type for the value of the data that will be displayed in the table 
+interface DataTableProps {
   //columns: ColumnDef<TData, TValue>[];
-  data: TData[];
+  data: Employee[];
 }
 
-export function DataTable<TData extends Employee>({
+export function DataTable({
   data,
-}: DataTableProps<TData>) {
+}: DataTableProps) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [tableData, setTableData] = useState(data);
