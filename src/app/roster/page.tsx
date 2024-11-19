@@ -1,7 +1,7 @@
 import { employees } from "@/lib/placeholder-data";
 import { columns, Payment } from "./basic-columns";
 import { BasicTable } from "./basic-table";
-import { employeeColumns } from "./columns";
+// import { employeeColumns } from "./columns";
 import { DataTable } from "./data-table";
 
 async function getData(): Promise<Payment[]> {
@@ -50,7 +50,7 @@ export default async function DemoPage() {
       <div className="border rounded-md m-2 p-4">
         employee table 
       </div>
-      <DataTable columns={employeeColumns} data={employeesWithFullName} />
+      <DataTable data={employeesWithFullName} />
     </div>
   );
 }

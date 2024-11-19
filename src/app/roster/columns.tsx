@@ -1,11 +1,19 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Employee } from "@/data/schema-definitions";
+// import { Employee } from "@/data/schema-definitions";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
 
-export const employeeColumns: ColumnDef<Employee>[] = [
+interface ColumnsProps<TData> {
+  setTableData: React.Dispatch<React.SetStateAction<TData[]>>;
+}
+
+export const employeeColumns = <TData extends Employee>({
+  setTableData,
+}: ColumnsProps<TData>): ColumnDef<TData>[] => [
   {
     accessorKey: "full_name",
     header: ({ column }) => {
@@ -19,8 +27,21 @@ export const employeeColumns: ColumnDef<Employee>[] = [
         </Button>
       );
     },
-    cell: ({ row }) => {
-      return <div>{row.original.full_name}</div>;
+    cell: ({ cell }) => {
+      return (
+        <Input
+          value={cell.getValue() as string}
+          onChange={(event) => {
+            const newValue = event.target.value;
+            const rowIndex = cell.row.index;
+            setTableData((prevData) => {
+              return prevData.map((row, index) =>
+                index === rowIndex ? { ...row, full_name: newValue } : row
+              );
+            });
+          }}
+        />
+      );
     },
   },
   {

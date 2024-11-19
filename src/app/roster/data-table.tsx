@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/table";
 import { fuzzyFilter } from "@/lib/utils";
 import {
-  ColumnDef,
+  //   ColumnDef,
   ColumnFiltersState,
   flexRender,
   getCoreRowModel,
@@ -20,22 +20,26 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { useState } from "react";
+import { employeeColumns } from "./columns";
+import { Employee } from "@/data/schema-definitions";
 
-interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
+// TData: generic type for the data that will be displayed in the table
+// TValue: generic type for the value of the data that will be displayed in the tablen
+interface DataTableProps<TData> {
+  //columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
 
-export function DataTable<TData, TValue>({
-  columns,
+export function DataTable<TData extends Employee>({
   data,
-}: DataTableProps<TData, TValue>) {
+}: DataTableProps<TData>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+  const [tableData, setTableData] = useState(data);
 
   const table = useReactTable({
-    data,
-    columns,
+    data: tableData,
+    columns: employeeColumns({ setTableData }),
     getCoreRowModel: getCoreRowModel(),
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
@@ -93,7 +97,10 @@ export function DataTable<TData, TValue>({
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={columns.length} className="h-8 text-center">
+                <TableCell
+                  colSpan={employeeColumns.length}
+                  className="h-8 text-center"
+                >
                   No data
                 </TableCell>
               </TableRow>
