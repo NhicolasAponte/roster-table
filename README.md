@@ -8,7 +8,12 @@ This project is intended to be a playground for working and experimenting with R
 [x] dynamic routing component using routes.ts and NavRoutes array 
 [x] generate data 
 [x] created sample table and column components from shadcn 
-[] create table and columns components 
+[x] create table and columns components 
+[x] create editable cell component 
+[] create department card component 
+[] create card grid 
+[] navigation 
+[x] if using forms, install zod 
 [] install drizzle 
 [] setup postgres docker image 
 [] generate and run migrations 
