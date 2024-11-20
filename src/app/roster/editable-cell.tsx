@@ -27,16 +27,26 @@ export const EditableCell = <TData, TValue>({
         index === rowIndex ? { ...row, [columnId]: value } : row
       );
     });
+
+    // NOTE TODO: call server action here
+  }
+
+  function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.key === "Enter") {
+      handleBlur();
+    }
   }
 
   return isEditing ? (
     <Input
-      value={cell.getValue() as string}
+      value={value}
       onChange={(event) => setValue(event.target.value)}
       onBlur={handleBlur}
+      onKeyDown={handleKeyDown}
       autoFocus
+      className="focus-visible:ring-0 px-1"
     />
   ) : (
     <div onClick={() => setIsEditing(true)}>{value}</div>
-  )
+  );
 };

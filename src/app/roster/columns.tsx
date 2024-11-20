@@ -21,6 +21,7 @@ export const employeeColumns = ({
         <Button
           variant={"ghost"}
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="p-6"
         >
           Full Name
           <ArrowUpDown size={16} />
@@ -38,14 +39,15 @@ export const employeeColumns = ({
         <Button
           variant={"ghost"}
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="p-6"
         >
           Department
           <ArrowUpDown size={16} />
         </Button>
       );
     },
-    cell: ({ row }) => {
-      return <div>{row.original.department}</div>;
+    cell: ({ cell }) => {
+      return <EditableCell cell={cell} setTableData={setTableData} />;
     },
   },
   {
@@ -55,14 +57,15 @@ export const employeeColumns = ({
         <Button
           variant={"ghost"}
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="p-6"
         >
           Position
           <ArrowUpDown size={16} />
         </Button>
       );
     },
-    cell: ({ row }) => {
-      return <div>{row.original.position}</div>;
+    cell: ({ cell }) => {
+      return <EditableCell cell={cell} setTableData={setTableData} />;
     },
   },
   {
@@ -72,14 +75,15 @@ export const employeeColumns = ({
         <Button
           variant={"ghost"}
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="p-6"
         >
           Station
           <ArrowUpDown size={16} />
         </Button>
       );
     },
-    cell: ({ row }) => {
-      return <div>{row.original.station}</div>;
+    cell: ({ cell }) => {
+      return <EditableCell cell={cell} setTableData={setTableData} />;
     },
   },
   {
@@ -89,14 +93,15 @@ export const employeeColumns = ({
         <Button
           variant={"ghost"}
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="p-6"
         >
           Employment Type
           <ArrowUpDown size={16} />
         </Button>
       );
     },
-    cell: ({ row }) => {
-      return <div>{row.original.employment_type}</div>;
+    cell: ({ cell }) => {
+      return <EditableCell cell={cell} setTableData={setTableData} />;
     },
   },
   {
@@ -106,14 +111,15 @@ export const employeeColumns = ({
         <Button
           variant={"ghost"}
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="p-6"
         >
           Hire Date
           <ArrowUpDown size={16} />
         </Button>
       );
     },
-    cell: ({ row }) => {
-      return <div>{row.original.hire_date}</div>;
+    cell: ({ cell }) => {
+      return <EditableCell cell={cell} setTableData={setTableData} />;
     },
   },
 ];

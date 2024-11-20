@@ -22,6 +22,7 @@ import {
 import { useState } from "react";
 import { employeeColumns } from "./columns";
 import { Employee } from "@/data/schema-definitions";
+import { Button } from "@/components/ui/button";
 
 // TData: generic type for the data that will be displayed in the table
 // TValue: generic type for the value of the data that will be displayed in the table 
@@ -54,12 +55,15 @@ export function DataTable({
 
   return (
     <div>
-      <div>
+      <div className="flex justify-between">
         <Input
           placeholder="Search ..."
           onChange={(event) => table.setGlobalFilter(event.target.value)}
           className="max-w-sm mb-2"
         />
+        <Button variant={"secondary"}>
+            Add New Employee
+        </Button>
       </div>
       <div className="border rounded-md">
         <Table>
